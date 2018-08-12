@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>thermostat</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+  
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="src/thermostat.js"></script>
+    <script src="src/interface.js"></script>
+ 
+    <section>
+        <h1 id="temperature"></h1>
+        <p>
+            <button id="temperature-up">+</button>
+            <button id="temperature-down">-</button>
+            <button id="temperature-reset">reset</button>
+            power saving mode is
+            <span id="power-saving-status">on</span>
+            <button id="powersaving-on">PSM</button>
+        </p>
+    </section>
+<!-- <script>
+    $(document).ready(function() {
+                var thermostat = new Thermostat();
+                $('#temperature').text(thermostat.temperature);
+              })</script> -->
+
+</body>
+
+</html>
