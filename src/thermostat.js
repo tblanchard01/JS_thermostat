@@ -56,7 +56,7 @@ Thermostat.prototype.powerSavingModeSwitch = function () {
     }
 }
 
-Thermostat.prototype.reset_temp = function () {
+Thermostat.prototype.reset = function () {
     this.temperature = 20
     return "temperature reset to 20"
 }

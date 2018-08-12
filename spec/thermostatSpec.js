@@ -6,7 +6,7 @@ describe('Basic thermostat controls:', function () {
     beforeEach(function () {
         thermostat = new Thermostat();
     })
-    
+
     it('can display current temperature', function () {
         expect(thermostat.getTemperature()).toEqual(thermostat.temperature)
     })
@@ -21,28 +21,35 @@ describe('Basic thermostat controls:', function () {
         thermostat.down()
         expect(thermostat.getTemperature()).toEqual(19)
     })
-    
+
+    it('temp can be reset to 20', function () {
+        thermostat.up(5)
+        thermostat.reset()
+        expect(thermostat.getTemperature()).toEqual(20)
+    })
+
     describe('Energy saving functions:', function () {
 
         it('energy usage is low if temp is less than 18', function () {
-            thermostat.temperature = 17
+            thermostat.down(3)
             expect(thermostat.energyUsage()).toEqual('low')
 
         })
 
-it('energy usage is medium if temp is less than 25', function () {
-            thermostat.temperature = 24
+        it('energy usage is medium if temp is less than 25', function () {
+            thermostat.up(4)
             expect(thermostat.energyUsage()).toEqual('medium')
 
         })
         it('energy usage is high if temp is greater than 25', function () {
-            thermostat.temperature = 26
+            thermostat.powerSavingModeSwitch();
+            thermostat.up(6)
             expect(thermostat.energyUsage()).toEqual('high')
 
         })
 
-        it('if power saving mode is OFF temp cannot be increased beyond 32', function(){
-            thermostat.powerSavingModeSwitch() 
+        it('if power saving mode is OFF temp cannot be increased beyond 32', function () {
+            thermostat.powerSavingModeSwitch()
             thermostat.temperature = 32
             expect(thermostat.up()).toEqual('cannot increase temperature beyond 32')
         })
